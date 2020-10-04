@@ -1,0 +1,42 @@
+
+
+<div class="genres_index">
+
+  <h2>ジャンル一覧・追加</h2>
+
+<%= form_for(@genre,url: admin_product_genres_path) do |f| %>
+  <h4 class="form">ジャンル
+  <%= f.text_field :name %>
+  </h4>
+  <label class="form"><%= f.radio_button :genre_status, :true,　checked: true %>有効</label>
+  <label class="form"><%= f.radio_button :genre_status, :false %>無効</label>
+  <label class="form"><%= f.submit "追加"%></label>
+
+
+<% end %>
+
+<table class="table table-striped">
+<thead>
+
+<tr>
+  <th>ジャンル</th>
+  <th>状態</th>
+  <th></th>
+</tr>
+
+</thead>
+
+<% @genres.each do |product_genre|%>
+<tbody>
+<tr>
+<td><%= product_genre.name %></td>
+<td><%= product_genre.genre_status %></td>
+<td><%= link_to"編集する", edit_admin_product_genre_path(product_genre.id)%></td>
+</tr>
+<% end %>
+</tbody>
+
+</table>
+</div>
+
+
