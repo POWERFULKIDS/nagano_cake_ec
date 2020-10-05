@@ -8,4 +8,6 @@ class Product < ApplicationRecord
   	has_many :orders, through: :ordered_products
 
 	belongs_to :product_genre
+	
+	attachment :image
 end
