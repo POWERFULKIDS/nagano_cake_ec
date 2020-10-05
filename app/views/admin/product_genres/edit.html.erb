@@ -1,0 +1,17 @@
+<div class="genres_index">
+<h1>ジャンル編集</h1>
+
+<%= form_for(@product_genre, url: admin_product_genre_path) do |f| %>
+  <h4 class="form">ジャンル
+  <%= f.text_field :name %>
+  </h4>
+  <label class="form"><%= f.radio_button :genre_status, :true %>有効</label>
+  <label class="form"><%= f.radio_button :genre_status, :false %>無効</label>
+  <label class="form"><%= f.submit "変更を保存する"%></label>
+
+
+
+
+<% end %>
+
+</div>

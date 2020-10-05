@@ -60,4 +60,6 @@ Rails.application.routes.draw do
     scope module: :public do
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
     end
+
+    
 end
