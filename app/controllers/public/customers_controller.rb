@@ -5,9 +5,13 @@ class Public::CustomersController < ApplicationController
 	end
 
 	def edit
+		@customer = Customer.find(params[:id])
 	end
 
 	def update
+		@customer = Customer.find(params[:id])
+		@customer.update(customer_params)
+		redirect_to customer_path(@customer)
 	end
 
 	def delete_page
