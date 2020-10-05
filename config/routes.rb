@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     
 
 	namespace :admin do
-  	root to: 'admin#top'
+  	root to: 'admins#top'
   	end
 
     namespace :admin do
