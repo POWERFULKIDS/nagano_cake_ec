@@ -1,5 +1,3 @@
-
-
 <div class="genres_index">
 
   <h2>ジャンル一覧・追加</h2>
@@ -15,7 +13,7 @@
 
 <% end %>
 
-<table class="table table-striped">
+<table class="table table-hover">
 <thead>
 
 <tr>
@@ -30,7 +28,13 @@
 <tbody>
 <tr>
 <td><%= product_genre.name %></td>
-<td><%= product_genre.genre_status %></td>
+<td>
+<% if product_genre.genre_status == true %>
+  <p>有効</p>
+<% else %>
+ <p>無効</p>
+<% end %>
+</td>
 <td><%= link_to"編集する", edit_admin_product_genre_path(product_genre.id)%></td>
 </tr>
 <% end %>
