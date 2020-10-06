@@ -17,14 +17,76 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+
+body{
+  font-family: "NSSG Grotesk", YakuHanJPs, 游ゴシック, "Yu Gothic", YuGothic, "Hiragino Sans", Meiryo, "Hiragino Kaku Gothic ProN", sans-serif;
+  color: #222222;
+}
+
 header{
 	.navbar-left{
 		font-size: 25px;
-		padding-top:5px;
+		padding-top: 15px;
+		margin-left: 40px
 	}
+	.navbar-right{
+		margin-right: 20px;
+	}
+}
+
+a {
+color: #000033;
+text-decoration: none;
+}
+
+a:hover{
+	color: #777777;
+	text-decoration: none;
+}
+
+p{
+	font-size: 12px;
 }
 
 .body{
 	margin-top: 80px;
 }
 
+ul{
+  list-style: none;
+}
+
+.genre{
+	text-align: left;
+}
+.top{
+	position: relative;
+}
+
+.top h2{
+	position: absolute;
+	top: 1px;
+	left: 35px;
+}
+
+.top p{
+	position: absolute;
+	top: 605px;
+	left: 35px;
+}
+
+.top-image{
+	width: 100%;
+}
+
+.about-title{
+	font-size: 200px;
+	text-align: center;
+}
+
+.about-text{
+	text-align: center;
+	line-height: 28px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
