@@ -17,11 +17,27 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+
+body{
+  font-family: "NSSG Grotesk", YakuHanJPs, 游ゴシック, "Yu Gothic", YuGothic, "Hiragino Sans", Meiryo, "Hiragino Kaku Gothic ProN", sans-serif;
+  color: #222222;
+}
+
 header{
 	.navbar-left{
 		font-size: 25px;
 		padding-top:5px;
 	}
+}
+
+a {
+color: #000033;
+text-decoration: none;
+}
+
+a:hover {
+	color: #777777;
+	text-decoration: none;
 }
 
 .body{
