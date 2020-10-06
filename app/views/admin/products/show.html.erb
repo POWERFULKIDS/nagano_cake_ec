@@ -1,12 +1,12 @@
 <h2>商品詳細</h2>
 
-<%= attachment_image_tag @product, :image%>
+<%= attachment_image_tag(@product, :image, :fill, 200, 200,)%>
 
 <h4>商品名<%= @product.name%></h4>
 
 <h4>商品説明<%= @product.body%></h4>
 
-<h4>ジャンル<%= @product.name%></h4>
+<h4>ジャンル<%= @product.product_genre.name%></h4>
 
 <h4>税込価格(税抜価格)<%= (@product.price * 1.10).round(0)%>(<%= @product.price%>)円</h4>
 
