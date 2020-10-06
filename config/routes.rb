@@ -41,9 +41,9 @@ Rails.application.routes.draw do
     end
 
     scope module: :public do
-    resources :customers, only: [:show,:edit,:update]
     get "customers/delete_page" => "customers#delete_page"
     patch "customers/withdraw" => "customers#withdraw"
+    resources :customers, only: [:show,:edit,:update]
     end
 
     scope module: :public do
@@ -61,5 +61,5 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
     end
 
-    
+
 end

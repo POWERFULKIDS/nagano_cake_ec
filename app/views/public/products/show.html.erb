@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="row">
+	<%= render "public/products/sidebar" %>
+		<div class="col-xs-10">
+			<table>
+			<tr><td><%= attachment_image_tag(@product, :image, :fill, 300, 200,)%></td>
+			
+            <td><h2><%= @product.name%></h2><br>
+            <%= @product.body%><br>
+            <h3>税込<%= (@product.price * 1.10).round(0)%>円</h3></td></tr>
+            </table>
+
+            
+</div>
+</div>
