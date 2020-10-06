@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 
     scope module: :public do
     root to: 'products#top'
+    get 'products/about'
   	end
 
   	scope module: :public do
