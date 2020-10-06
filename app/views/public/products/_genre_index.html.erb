@@ -1,0 +1,10 @@
+<p><span><strong>ジャンルから探す</strong></span></p>
+<ul>
+	<% product_genres.each do |product_genre| %>
+		<% if product_genre.genre_status == true %>
+			<li class="genre">
+					<%= product_genre.name %>
+			</li>
+		<% end %>
+	<% end %>
+</ul>

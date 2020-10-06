@@ -14,11 +14,12 @@
   <body>
     <header>
       <nav class="navbar navbar-fixed-top">
-        <div class="container">
-          <nav class="nav navbar-nav navbar-left"><span>Nagano cake</span></nav>
+        <!-- <div class="container"> -->
+          <nav class="nav navbar-nav navbar-left"><span><%= link_to "Nagano cake", root_path %></span></nav>
           <!--カスタマーのログイン後のヘッダ-->
           <% if customer_signed_in? %>
             <ul class="nav navbar-nav navbar-right">
+              <p class="navbar-text">ようこそ <%= current_customer.first_name %>さん！</p>
               <li><%= link_to "マイページ", customer_path(current_customer) %></li>
               <li><%= link_to "商品一覧", products_path %></li>
               <li>カート</li>
@@ -36,13 +37,13 @@
           <!--管理者とカスタマーのログイン前のヘッダ-->
           <% else %>
             <ul class="nav navbar-nav navbar-right">
-              <li>　About </li>
+              <li><%= link_to "About", products_about_path %></li>
               <li>　商品一覧 </li>
               <li>　新規登録 </li>
               <li><%= link_to "ログイン", new_customer_session_path %></li>
             </ul>
           <% end %>
-        </div>
+       <!--  </div> -->
       </nav>
     </header>
     <div class="body">
