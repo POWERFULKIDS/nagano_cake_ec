@@ -1,3 +1,42 @@
 // Place all the styles related to the public/Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.form{
+	display:inline-block;
+}
+
+.genres_index{
+	width:40%;
+    margin-left:75px;
+}
+
+.genrelist{
+	text-align:left;
+	margin-top:20px;
+	margin-bottom:20px;
+	font-size:17px;
+}
+
+.recommend-item{
+	float:left;
+	margin-right:5px;
+}
+
+.footer{
+	float:right;
+}
+
+.itemlist{
+	float:left;
+}
+
+.detail{
+	display:block;
+}
+
+.genrelist{
+	display:block;
+}

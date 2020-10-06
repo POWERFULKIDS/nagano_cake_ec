@@ -1,0 +1,31 @@
+
+ <h2>オススメ商品</h2>
+
+<div class="recommend-item">
+	<%= link_to product_path(@product1) do %><%= attachment_image_tag(@product1, :image, :fill, 220, 130,)%><% end %><br>
+	<%= @product1.name%><br>
+    ¥<%= @product1.price%>
+</div>
+
+
+<div class="recommend-item">
+    <%= link_to product_path(@product2) do %><%= attachment_image_tag(@product2, :image, :fill, 220, 130,)%><% end %><br>
+	<%= @product2.name%><br>
+    ¥<%= @product2.price%>
+</div>
+
+<div class="recommend-item">
+    <%= link_to product_path(@product3) do %><%= attachment_image_tag(@product3, :image, :fill, 220, 130,)%><% end %><br>
+	<%= @product3.name%><br>
+    ¥<%= @product3.price%>
+</div>
+
+<div class="recommend-item">
+    <%= link_to product_path(@product4) do %><%= attachment_image_tag(@product4, :image, :fill, 220, 130,)%><% end %><br>
+	<%= @product4.name%><br>
+    ¥<%= @product4.price%>
+</div>
+
+</div>
+<div class="footer"><%= link_to "もっと見る", products_path %></div>
+
