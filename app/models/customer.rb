@@ -12,10 +12,10 @@ class Customer < ApplicationRecord
   has_many :addresses
 
   #退会フラグのenum falseは有効会員、trueは退会済み
-  enum customer_status: { '有効': false, '退会済': true }
+  #enum customer_status: { '有効': false, '退会済': true }
   #customer_statusが有効の場合は有効会員(ログイン可能)
   def active_for_authentication?
-  	super && (self.customer_status == '有効')
+  	super && (self.customer_status == false)
   end
 
 end
