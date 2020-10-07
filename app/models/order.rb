@@ -5,4 +5,16 @@ class Order < ApplicationRecord
 
 	belongs_to :customer
 	has_many :ordered_products
+
+	# # 注文ステータス
+	# enum　order_status {
+	# 	waiting: 0
+	# 	deposited: 1
+	# 	production: 2
+	# 	preparation: 3
+	# 	sent: 4
+	# }
+
+	# 当日注文された件数
+	scope :created_today, -> { where("created_at >= ?", Time.zone.now.beginning_of_day) }
 end

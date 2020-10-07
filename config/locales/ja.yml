@@ -1,0 +1,9 @@
+ja:
+  enums:
+    orders:
+      order_status:
+        waiting: "入金待ち"
+        deposited: "入金確認"
+        production: "製作中"
+        preparation: "発送準備中"
+        sent: "発送済み"
