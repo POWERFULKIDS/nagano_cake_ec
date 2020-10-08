@@ -7,3 +7,14 @@ ja:
         production: "製作中"
         preparation: "発送準備中"
         sent: "発送済み"
+
+      payment_method:
+        card: "クレジットカード"
+        transfer: "銀行振込"
+
+    ordered_product:
+      make_status:
+        making: "製作不可"
+        makewaiting: "製作待ち"
+        makeproduction: "製作中"
+        done: "製作完了"

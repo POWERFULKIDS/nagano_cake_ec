@@ -1,6 +1,6 @@
-<h3>注文履歴詳細</h3>
+<h3>注文履歴詳細</h3><br>
 
-<table>
+<table class="ordered-table">
 	<tbody>
 		<tr>
 			<th>購入者</th>
@@ -16,53 +16,73 @@
 		</tr>
 		<tr>
 			<th>支払い方法</th>
-			<td><%= @order.payment_method %></td>
+			<td><%= @order.payment_method_i18n %></td>
 		</tr>
 		<tr>
 			<th>注文ステータス</th>
-			<td><%= f.select :@order.order_status,Order.order_statuses_i18n.invert, {}, placeholder: 0 %></td>
+			<td>
+				<%= form_with model: @order, local: true do |f| %>
+				<%= f.select :make_status, [["入金待ち", 0], ["入金確認", 1], ["製作中", 2], ["発送準備中", 3], ["発送済み", 4]], {selected: 0} %>
+				<%= f.submit "更新" %>
+				<% end %>
+			</td>
 		</tr>
 	</tbody>
 </table>
 
-<table class="table table-hover">
-	<thead>
-		<tr>
-			<th>商品名</th>
-			<th>価格（税込）</th>
-			<th>数量</th>
-			<th>小計</th>
-			<th>製作ステータス</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @product.each do |product| %>
-			<tr>
-				<td><%= product.id %></td>
-	  			<td><%= product.name %></td>
-	  			<td><%= product.price %></td>
-	  			<td><%= product.product_genre.name %></td>
-	  			<td><%= product.sale_status %></td>
-	  			<td><%= f.select :@order.ordered_product.make_status, [["製造不可", 0],["製造待ち", "製造待ち"]["製作中", "製作中"]["製作完了", "製作完了"]], include_blank: "選択して下さい" %></td>
-	 		</tr>
-		<%end%>
-	</tbody>
-</table>
+<br>
+<div class="row">
+	<div class="col-xs-9 ordered-list">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>商品名</th>
+					<th>単価（税込）</th>
+					<th>数量</th>
+					<th>小計</th>
+					<th>製作ステータス</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% total_price = 0 %>
+				<% @order.ordered_products.each do |ordered_product| %>
+					<tr>
+			  			<td><%= ordered_product.product.name %></td>
+			  			<td><%= (ordered_product.product.price * 1.10).round(0) %></td>
+			  			<td><%= ordered_product.amount %></td>
+			  			<td>
+			  				<%= sum_price = (ordered_product.product.price * 1.10).round(0).to_i * (ordered_product.amount).to_i %>
+			  				 <% total_price = total_price + sum_price %>
+			  			 </td>
+			  			<td>
+			  				<%= form_with model: @ordered_product, local: true do |f| %>
+								<%= f.select :make_status, [["製作不可", 0], ["製造待ち", 1], ["製作中", 2], ["製作完了", 3]], {include_blank: "ー" } %>
+			  			<%= f.submit "更新" %>
+			  			<% end %>
+			  			</td>
+			 		</tr>
+				<%end%>
+			</tbody>
+		</table>
+	</div>
 
-<table>
-	<tbody>
-		<tr>
-			<th>商品合計</th>
-			<td></td>
-		</tr>
-		<tr>
-			<th>送料</th>
-			<td>800円</td>
-		</tr>
-		<tr>
-			<th>請求金額合計</th>
-			<td></td>
-		</tr>
-	</tbody>
-</table>
+	<div class="col-xs-3 ordered-price">
+		<table>
+			<tbody>
+				<tr>
+					<th>商品合計</th>
+					<td class="text-right"><%= total_price %>円</td>
+				</tr>
+				<tr>
+					<th>送料</th>
+					<td class="text-right">800円</td>
+				</tr>
+				<tr>
+					<th>請求金額合計</th>
+					<td class="text-right"><%= claim_price = (total_price).to_i + (@order.fee).to_i %>円</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
