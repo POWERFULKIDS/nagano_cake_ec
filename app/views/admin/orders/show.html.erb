@@ -1,10 +1,10 @@
-<h4>注文履歴詳細</h4>
+<h3>注文履歴詳細</h3>
 
 <table>
 	<tbody>
 		<tr>
 			<th>購入者</th>
-			<td><%= @order.customer.name %></td>
+			<td><%= @order.customer.last_name %></td>
 		</tr>
 		<tr>
 			<th>配送先</th>
@@ -20,7 +20,7 @@
 		</tr>
 		<tr>
 			<th>注文ステータス</th>
-			<td><%= f.select :@order.order_status, [["入金待ち", "入金待ち"], ["入金確認", "入金確認"], ["製作中", "製作中"], ["発送準備中", "発送準備中"], ["発送済み", "発送済み"]], include_blank: "選択して下さい" %></td>
+			<td><%= f.select :@order.order_status,Order.order_statuses_i18n.invert, {}, placeholder: 0 %></td>
 		</tr>
 	</tbody>
 </table>
@@ -44,7 +44,7 @@
 	  			<td><%= product.price %></td>
 	  			<td><%= product.product_genre.name %></td>
 	  			<td><%= product.sale_status %></td>
-	  			<td><%= f.select :@order.ordered_product.make_status, [["製造不可", "製造不可"],["製造待ち", "製造待ち"]["製作中", "製作中"]["製作完了", "製作完了"]], include_blank: "選択して下さい" %></td>
+	  			<td><%= f.select :@order.ordered_product.make_status, [["製造不可", 0],["製造待ち", "製造待ち"]["製作中", "製作中"]["製作完了", "製作完了"]], include_blank: "選択して下さい" %></td>
 	 		</tr>
 		<%end%>
 	</tbody>

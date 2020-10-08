@@ -1,14 +1,19 @@
-<h2>会員一覧</h2>
+<h3>会員一覧</h3><br>
 
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
 <table class="table table-hover">
+	<thead>
 	<tr>
 		<th>会員ID</th>
 		<th>氏名</th>
 		<th>メールアドレス</th>
 		<th>ステータス</th>
 	</tr>
+</thead>
+<tbody>
+	<% @customer.each do |customer| %>
 	<tr>
-		<% @customer.each do |customer| %>
 			<td><%= customer.id%></td>
 			<td>
 				<%=link_to customer.last_name + customer.first_name, admin_customer_path(customer.id)%>
@@ -19,6 +24,8 @@
 			<% else %>
 				<td>退会済</td>
 			<% end %>
-		<% end %>
 	</tr>
+	<% end %>
+</tbody>
 </table>
+</div></div>

@@ -1,6 +1,6 @@
 ja:
   enums:
-    orders:
+    order:
       order_status:
         waiting: "入金待ち"
         deposited: "入金確認"
