@@ -1,5 +1,5 @@
 <div class="row col-md-4 col-md-offset-4">
-  <h3>管理者ログイン</h3>
+  <h3>管理者ログイン</h3><br>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <ul>
         <li class="email">
@@ -10,7 +10,7 @@
           <label><%= f.label :パスワード %></label>
           <%= f.password_field :password, autocomplete: "current-password" %>
         </li>
-        <li><%= f.submit "ログイン", class: "btn btn-secondary col-xs-7 login" %></li>
+        <li><%= f.submit "ログイン", class: "btn botan col-xs-7 login" %></li>
       </ul>
     <% end %>
 </div>
