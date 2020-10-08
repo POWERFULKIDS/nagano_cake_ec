@@ -7,9 +7,17 @@
 			
             <td><h2><%= @product.name%></h2><br>
             <%= @product.body%><br>
-            <h3>税込<%= (@product.price * 1.10).round(0)%>円</h3></td></tr>
+            <h3>¥<%= (@product.price * 1.10).round(0)%>円（税込）</h3></td></tr>
             </table>
 
-            
+              <%= form_for (@cart_product) do |f| %>
+              <%= f.hidden_field :product_id, value: @product.id %>
+              <%= f.select :amount, options_for_select((1..20).to_a), include_blank: "個数選択" %>
+              <%= f.submit "カートに入れる" %>
+              <% end %>
+
+
+        </div>
 </div>
 </div>
+
