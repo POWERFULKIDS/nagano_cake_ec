@@ -1,9 +1,11 @@
-<p><span><strong>ジャンルから探す</strong></span></p>
+<h5><span><strong>ジャンルから探す</strong></span></h5>
 <ul>
 	<% product_genres.each do |product_genre| %>
 		<% if product_genre.genre_status == true %>
 			<li class="genre">
+				<%= link_to products_path do %>
 					<%= product_genre.name %>
+				<% end %>
 			</li>
 		<% end %>
 	<% end %>
