@@ -1,27 +1,30 @@
-<h2>会員の方はこちらからログイン</h2>
+<div class="customer-login col-md-7 col-md-offset-3">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <ul>
+     <h4><span style="background-color: #efefef" >会員の方はこちらからログイン</span></h4>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <li class="email">
+        <br><label><%= f.label :Eメール %></label>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </li>
 
-  <div class="field">
-    <%= f.label :パスワード %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+      <li class="password">
+        <label><%= f.label :パスワード %></label>
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </li>
 
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+        <p>=>パスワードを忘れた方は<%= link_to " こちら", new_password_path(resource_name) %></p>
+      <% end %>
+      <li><%= f.submit "ログイン", class: "btn botan col-xs-8" %></li><br>
+    <% end %>
 
-  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "=>パスワードを忘れた方はこちら", new_password_path(resource_name) %><br />
-<% end %>
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<p>登録がお済みでない方</p>
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "こちら", new_registration_path(resource_name) %>
-<% end %>
-<p>から新規登録を行ってください。</p>
+  <br><br><br>
+  <h4><span style="background-color: #efefef" >登録がお済みでない方</span></h4>
+    <li>
+      <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+        <p><%= link_to "こちら  ", new_registration_path(resource_name) %>から新規登録を行ってください。</p>
+      <% end %>
+    </li>
+  </ul>
+</div>

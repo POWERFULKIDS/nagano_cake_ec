@@ -58,15 +58,27 @@ class Public::OrdersController < ApplicationController
 	def index
 
 
+
+		@order = Order.where(customer_id: current_customer.id)
+		#@orders = @order.find(params[:id])
+
+
 	end
 
 	def show
+
 		@order =Order.find(params[:id])
+
+		@order = Order.find(params[:id])
+		@orders = Order.where(customer_id: current_customer.id)
+
 	end
 
 	private
   	def order_params
-  		params.require(:order).permit(:address_id, :address_method, :payment_method, :address, :name, :postcode, :customer_id, :total_payment, address_attributes:[:id, :name, :postcode, :address])
+
+  		params.require(:order).permit(:order_status, :fee, :address_id, :address_method, :payment_method, :address, :name, :postcode, :customer_id, :total_payment, address_attributes:[:id, :name, :postcode, :address])
+
   	end
 
 end

@@ -3,5 +3,6 @@
 	<% product_genres.each do |product_genre| %>
 		<% if product_genre.genre_status == true %>
 					<p class="genrelist"><%= link_to product_genre.name, products_path(product_genre_id: product_genre.id) %></p>
+
 		<% end %>
 	<% end %>

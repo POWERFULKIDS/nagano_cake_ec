@@ -70,3 +70,7 @@ gem 'kaminari','~> 1.2.1'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
+
+# enumの日本語化
+gem 'rails-i18n'
+gem 'enum_help'

@@ -7,6 +7,15 @@ class Order < ApplicationRecord
 	has_many :ordered_products
 
 
+	# 注文ステータス
+	enum order_status: { waiting: 0, deposited: 1, production: 2, preparation: 3, sent: 4 }
+	# validates :make_status, inclusion { in: Order.make_statuses.keys }
 
+	# 支払い方法
 	enum payment_method: { クレジットカード: 0, 銀行振込: 1 }
+
+	# 当日注文された件数
+	scope :created_today, -> { where("created_at >= ?", Time.zone.now.beginning_of_day) }
+
+
 end
