@@ -1,0 +1,57 @@
+<h2>注文履歴詳細</h2>
+
+<h4>注文情報</h4>
+<table class="table table-bordered">
+	<tr><td>注文日</td><td><%= @order.created_at %></td></tr>
+	<tr><td>配送先</td><td><%= @order.address %></td></tr>
+	<tr><td>支払い方法</td><td>
+		<% if @order.payment_method == 0 %>
+					入金待ち
+				<% else%>
+					振込
+				<% end %>
+	</td></tr>
+	<tr><td>ステータス</td><td>
+		<% if @order.order_status == 0 %>
+					入金待ち
+				<% elsif @order.order_status == 1 %>
+					入金確認
+				<% elsif @order.order_status == 2 %>
+					製作中
+				<% else%>
+					発送準備
+				<% end %>
+	</td></tr>
+</table>
+
+<h4>請求情報</h4>
+<table class="table table-bordered">
+	<tr><td>商品合計</td>
+		<% total_price = 0 %>
+		<% @order.ordered_products.each do |ordered_product| %>
+
+		<% sum_price = (ordered_product.product.price * 1.10).round(0).to_i * (ordered_product.amount).to_i %>
+		<td><%= total_price = total_price + sum_price %></td>
+		<% end %>
+	</tr>
+	<tr><td>配送料</td><td><%= @order.fee %></td></tr>
+	<tr><td>ご請求額</td><td><%= @order.total_payment %></td></tr>
+</table>
+
+<h4>注文内容</h4>
+<table class="table table-bordered">
+	<tr>
+		<th>商品</th>
+		<th>単価(税込)</th>
+		<th>個数</th>
+		<th>小計</th>
+	</tr>
+	<tr>
+		<% @order.ordered_products.each do |ordered_product| %>
+			<td><%= ordered_product.product.name %></td>
+			<td><%= (ordered_product.product.price * 1.10).round(0).to_i %></td>
+			<td><%= (ordered_product.amount).to_i %></td>
+			<td><%= (ordered_product.product.price * 1.10).round(0).to_i * (ordered_product.amount).to_i %></td>
+		<% end %>
+	</tr>
+</table>

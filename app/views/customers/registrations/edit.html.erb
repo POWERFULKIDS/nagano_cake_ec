@@ -1,38 +1,40 @@
-<h2>パスワードの変更</h2>
+<div class="customer-login col-md-7 col-md-offset-3">
+  <h2><span style="background-color: #efefef" >パスワードの変更</span></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "customers/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "customers/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %>
-  </div>
+    <div class="field">
+      <%= f.label :メールアドレス %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %>
+    </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :新しいパスワード %>
+      <% if @minimum_password_length %>
+        <em><%= @minimum_password_length %> 文字以上</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "新しいパスワード" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :'パスワード（確認用）' %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "パスワード（確認用）" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :現在のパスワード %> <i>(変更するには、現在のパスワードが必要です)</i><br />
+      <%= f.password_field :current_password, autocomplete: "現在のパスワード" %>
+    </div>
+
+    <div class="actions">
+      <br><%= f.submit "パスワードを変更する", class: "btn botan col-xs-6 login" %>
+    </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :新しいパスワード %>
-    <% if @minimum_password_length %>
-      <em><%= @minimum_password_length %> 文字以上</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "新しいパスワード" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :'パスワード（確認用）' %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "パスワード（確認用）" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :現在のパスワード %> <i>(変更するには、現在のパスワードが必要です)</i><br />
-    <%= f.password_field :current_password, autocomplete: "現在のパスワード" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "パスワードを変更する" %>
-  </div>
-<% end %>
-
-<%= link_to "戻る", :back %>
+  <br><br>
+  <%= link_to "戻る", :back %>
+</div>

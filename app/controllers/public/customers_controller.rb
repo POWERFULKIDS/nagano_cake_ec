@@ -20,7 +20,7 @@ class Public::CustomersController < ApplicationController
 
 	def withdraw
 		@customer = Customer.find(current_customer.id)
-		@customer.update(customer_status: '退会済')
+		@customer.update(customer_status: true)
 		#customer_statusカラムにフラグを立てる　default:false（有効会員)からtrue（退会済）へ
 		reset_session
 		#ログアウトさせる
@@ -29,7 +29,7 @@ class Public::CustomersController < ApplicationController
 
 	private
 	def customer_params
-		params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postcode, :address, :phone, :active)
+		params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postcode, :address, :phone, :customer_status)
 	end
 
 end

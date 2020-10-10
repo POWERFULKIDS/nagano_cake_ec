@@ -1,0 +1,86 @@
+<h3>注文履歴詳細</h3><br>
+
+<table class="ordered-table">
+	<tbody>
+		<tr>
+			<th>購入者</th>
+			<td><%= @order.customer.last_name %><%= @order.customer.first_name %></td>
+		</tr>
+		<tr>
+			<th>配送先</th>
+			<td><%= @order.address %></td>
+		</tr>
+		<tr>
+			<th></th>
+			<td><%= @order.name %></td>
+		</tr>
+		<tr>
+			<th>支払い方法</th>
+			<td><%= @order.payment_method_i18n %></td>
+		</tr>
+		<tr>
+			<th>注文ステータス</th>
+			<td>
+				<%= form_for(@order, url: {controller: 'orders', action: 'update'}) do |f| %>
+					<%= f.select :order_status, [["入金待ち", "waiting"], ["入金確認", "deposited"], ["製作中", "production"], ["発送準備中", "preparation"], ["発送済み", "sent"]], {}  %>
+				<%= f.submit "更新" %>
+				<% end %>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<br>
+<div class="row">
+	<div class="col-xs-9 ordered-list">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>商品名</th>
+					<th>単価（税込）</th>
+					<th>数量</th>
+					<th>小計</th>
+					<th>製作ステータス</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% total_price = 0 %>
+				<% @order.ordered_products.each do |ordered_product| %>
+					<tr>
+			  			<td><%= ordered_product.product.name %></td>
+			  			<td><%= (ordered_product.product.price * 1.10).round(0) %></td>
+			  			<td><%= ordered_product.amount %></td>
+			  			<td>
+			  				<%= sum_price = (ordered_product.product.price * 1.10).round(0).to_i * (ordered_product.amount).to_i %>
+			  				 <% total_price = total_price + sum_price %>
+			  			 </td>
+			  			<td>
+			  				<%= form_for(ordered_product, url: {controller: 'ordered_products', action: 'update'}) do |f| %>
+								<%= f.select :make_status, [["着手不可", "makeng"], ["製作待ち", "makewaiting"], ["製作中", "makeproduction"], ["製作完了", "done"]], {}  %>
+								<%= f.submit "更新" %>
+							<% end %>
+						</td>
+				<%end%>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="col-xs-3 ordered-price">
+		<table>
+			<tbody>
+				<tr>
+					<th>商品合計</th>
+					<td class="text-right"><%= total_price %>円</td>
+				</tr>
+				<tr>
+					<th>送料</th>
+					<td class="text-right">800円</td>
+				</tr>
+				<tr>
+					<th>請求金額合計</th>
+					<td class="text-right"><%= claim_price = (total_price).to_i + (@order.fee).to_i %>円</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
