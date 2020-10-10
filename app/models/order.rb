@@ -5,4 +5,6 @@ class Order < ApplicationRecord
 
 	belongs_to :customer
 	has_many :ordered_products
+
+	enum order_status: { waiting: 0, deposited: 1, production: 2, preparation: 3, sent: 4 }
 end
