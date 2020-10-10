@@ -8,6 +8,7 @@ class Order < ApplicationRecord
 
 	# 注文ステータス
 	enum order_status: { waiting: 0, deposited: 1, production: 2, preparation: 3, sent: 4 }
+	# validates :make_status, inclusion { in: Order.make_statuses.keys }
 
 	# 支払い方法
 	enum payment_method: { card: 0, transfer: 1 }
