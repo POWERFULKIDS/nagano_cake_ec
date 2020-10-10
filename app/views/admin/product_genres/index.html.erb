@@ -30,7 +30,12 @@
 <tbody>
 <tr>
 <td><%= product_genre.name %></td>
-<td><%= product_genre.genre_status %></td>
+<% if product_genre.genre_status == true %>
+<td>有効</td>
+<% else %>
+<td>無効</td>
+<% end %>
+
 <td><%= link_to"編集する", edit_admin_product_genre_path(product_genre.id)%></td>
 </tr>
 <% end %>

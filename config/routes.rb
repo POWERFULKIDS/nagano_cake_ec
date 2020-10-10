@@ -54,7 +54,7 @@ Rails.application.routes.draw do
 
     scope module: :public do
     resources :orders, only: [:index, :create, :new, :show]
-    get "orders/comfirm" => "orders#comfirm"
+    post "orders/comfirm" => "orders#comfirm"
     get "orders/thanks" => "orders#thanks"
     end
 
