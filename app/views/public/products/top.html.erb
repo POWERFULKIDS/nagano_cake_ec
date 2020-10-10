@@ -1,18 +1,23 @@
+<div class ="container">
 <div class="row">
+
 	<div class="col-xs-2">
 		<%= render 'genre_index', product_genres:@product_genres %>
 	</div>
 
 	<div class="top pull-right col-xs-10">
 		<div class="top-image"><%= image_tag 'top.jpg' %></div>
-		<h2>Welcome to NaganoCake</h2>
+		<div><h2>Welcome to NaganoCake</h2>
 		<p>このサイトは、ケーキ販売のECサイトになります。<br>
 		会員でない方も商品の閲覧はできますが、<br>
-		購入には会員登録が必要になります。</p>
+		購入には会員登録が必要になります。</p></div>
+		
+	    <%= render "recommend-item" %>
 	</div>
-</div>
 
 <div class="row">
 	<p><strong>おすすめ商品</strong></p>
 		<%= render "recommend-item", priduct1: @product1, priduct2: @product2, priduct3: @product3, priduct4: @product4 %>
 </div>
+</div>
+
