@@ -42,8 +42,10 @@
     <%= f.hidden_field :address %>
     <%= f.hidden_field :postcode %>
     <%= f.hidden_field :payment_method %>
-    <%= f.hidden_field :total_payment,:value => billing_amount %>
+    <%= f.hidden_field :total_payment,:value => billing_amount %>　
     <%= hidden_field_tag :address_method,params[:order][:address1] %>
+
+
 
     <%= f.submit '購入を確定する' ,class:"btn btn-success "%>
     <% end %>
