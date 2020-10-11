@@ -17,7 +17,7 @@
         <nav class="nav navbar-nav navbar-left"><span><%= link_to "Nagano cake", root_path %></span></nav>
         <!--カスタマーのログイン後のヘッダ-->
         <% if customer_signed_in? %>
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right nav_bar">
             <p class="navbar-text welcome">ようこそ <%= current_customer.first_name %>さん！</p>
             <li><%= link_to "マイページ", customer_path(current_customer) %></li>
             <li><%= link_to "商品一覧", products_path %></li>
