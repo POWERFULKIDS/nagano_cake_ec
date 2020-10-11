@@ -12,8 +12,7 @@
 
   <%= f.radio_button :address1, 1 %><label class="form">登録済み住所から選択</label><br>
 
-  <%= f.collection_select :address_id, Address.where(id: current_customer.id), :id, :address, include_blank: "選択して下さい" %><br>
-
+  <%= f.collection_select :address_id, Address.where(customer_id: current_customer.id), :id, :address, include_blank: "選択して下さい" %><br>
 
 
 
