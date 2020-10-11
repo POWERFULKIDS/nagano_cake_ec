@@ -24,11 +24,12 @@
 <table class="table table-bordered">
 	<tr>
 		<% total_price = 0 %>
+		<td>商品合計</td>
 		<% @order.ordered_products.each do |ordered_product| %>
-			<td>商品合計</td>
 			<% sum_price = (ordered_product.product.price * 1.10).round(0).to_i * (ordered_product.amount).to_i %>
-			<td><%= total_price = total_price + sum_price %></td>
+			<% total_price = total_price + sum_price %>
 		<% end %>
+		<td><%= total_price %></td>
 	</tr>
 	<tr>
 		<td>配送料</td>
@@ -48,13 +49,13 @@
 		<th>個数</th>
 		<th>小計</th>
 	</tr>
+	<% @order.ordered_products.each do |ordered_product| %>
 	<tr>
-		<% @order.ordered_products.each do |ordered_product| %>
 			<td><%= ordered_product.product.name %></td>
 			<td><%= (ordered_product.product.price * 1.10).round(0).to_i %></td>
 			<td><%= (ordered_product.amount).to_i %></td>
 			<td><%= (ordered_product.product.price * 1.10).round(0).to_i * (ordered_product.amount).to_i %></td>
-		<% end %>
 	</tr>
+	<% end %>
 </table>
 
