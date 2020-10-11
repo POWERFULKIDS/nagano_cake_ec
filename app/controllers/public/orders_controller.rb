@@ -34,6 +34,7 @@ class Public::OrdersController < ApplicationController
 
 	def create
 		@order = Order.new(order_params)
+
 		if params[:address_method] == 2.to_s
 			address = Address.new
 			address.address = @order.address
@@ -45,8 +46,18 @@ class Public::OrdersController < ApplicationController
 
 
 		@order.customer_id = current_customer.id
+		@cart_products =current_customer.cart_products
         if @order.save!
-        @cart_products =CartProduct.all
+            @cart_products.each do |cart_product|
+                ordered_product =OrderedProduct.new
+                ordered_product.price = cart_product.product.price
+                ordered_product.amount = cart_product.amount
+                ordered_product.order_id = @order.id
+            	ordered_product.product_id =cart_product.product_id
+            	ordered_product.save
+            end
+        
+        
 		@cart_products.destroy_all
         render :thanks
         else
@@ -56,8 +67,6 @@ class Public::OrdersController < ApplicationController
     end
 
 	def index
-
-
 
 		@order = Order.where(customer_id: current_customer.id)
 		#@orders = @order.find(params[:id])
