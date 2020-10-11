@@ -10,14 +10,15 @@
 		<th>ステータス</th>
 		<th>注文詳細</th>
 	</tr>
+	<% @order.each do |order| %>
 	<tr>
-		<% @order.each do |order| %>
-			<td><%= order.created_at %></td>
-			<td><%= order.address %></td>
-			<td>
+		<td><%= order.created_at %></td>
+		<td><%= order.address %></td>
+		<td>
 			<% order.ordered_products.each do |ordered_product| %>
 			<%= ordered_product.product.name %>
 			<%end%>
+      
 			</td>
 			<td><%= order.total_payment %></td>
 			<td><%= order.order_status_i18n %></td>
@@ -26,5 +27,5 @@
 			</td>
 		<%end%>
 	</tr>
+	<%end%>
 </table>
-
