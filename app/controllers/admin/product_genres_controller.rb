@@ -32,7 +32,7 @@ class Admin::ProductGenresController < ApplicationController
   redirect_to admin_product_genres_path
   end
 
-private
+  private
   def product_genre_params
   params.require(:product_genre).permit(:name, :genre_status)
   end
