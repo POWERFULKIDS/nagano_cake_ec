@@ -12,7 +12,7 @@ class Order < ApplicationRecord
 	# validates :make_status, inclusion { in: Order.make_statuses.keys }
 
 	# 支払い方法
-	enum payment_method: { クレジットカード: 0, 銀行振込: 1 }
+	enum payment_method: { card: 0, transfer: 1 }
 
 	# 当日注文された件数
 	scope :created_today, -> { where("created_at >= ?", Time.zone.now.beginning_of_day) }

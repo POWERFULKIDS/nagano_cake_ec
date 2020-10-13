@@ -31,7 +31,8 @@
         </table>
 
 
-    <strong>支払い方法</strong><%= @order.payment_method %><br>
+    <strong>支払い方法</strong>
+    <%= @order.payment_method_i18n %><br>
     <strong>お届け先</strong>
     <%= @order.postcode %>
     <%= @order.address%>

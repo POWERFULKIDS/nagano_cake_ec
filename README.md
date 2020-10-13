@@ -1,3 +1,4 @@
+
 #Nagano Cake
 
 Nagano Cakeはrailsを使用した通販サイトです。

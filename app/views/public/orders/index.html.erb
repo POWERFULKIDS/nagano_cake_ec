@@ -26,5 +26,6 @@
 				<%= link_to "表示する", order_path(order.id)%>
 			</td>
 	</tr>
-	<%end%>
+	
 </table>
+<div class="order_page"><%= paginate @order %></div>
