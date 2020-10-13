@@ -12,6 +12,8 @@
         <p class="shoppingcart"><%= link_to "カートを空にする", cart_products_destroy_all_path(@cart_products), method: :delete, class:"btn btn-danger" %></p>
 
         <tbody>
+        
+            
         	<% total_price = 0 %>
 
             <% @cart_products.each do |cart_product| %>
@@ -33,6 +35,8 @@
             <td><%= link_to "削除する", cart_product_path(cart_product.id), method: :delete %></td>
             </tr>
             <% end %>
+            
+            
 
 
     </tbody>
