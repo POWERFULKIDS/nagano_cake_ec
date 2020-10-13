@@ -1,29 +1,47 @@
-<h2>配送先登録/一覧</h2>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+		<h3><span style="background-color: #efefef">配送先登録/一覧</span></h3><br>
 
-<%= form_for(@address, url: addresses_path) do |f| %>
-	<h4>郵便番号(ハイフンなし)<%= f.text_field :postcode %></h4>
-	<h4>住所<%= f.text_field :address %></h4>
-	<h4>宛名<%= f.text_field :name %></h4>
-	<%= f.submit '登録する' %>
-<% end %>
+		<%= form_for(@address, url: addresses_path) do |f| %>
+		<table class="table-index">
+			<tbody>
+				<tr height="35">
+					<th>郵便番号(ハイフンなし)</th><td><%= f.text_field :postcode %></td>
+				</tr>
+				<tr height="35">
+					<th>住所</th><td><%= f.text_field :address, :size=>'63' %></td>
+				</tr>
+				<tr height="35">
+					<th>宛名</th><td><%= f.text_field :name %></td>
+				</tr>
+			</tbody>
+		</table>
+			<%= f.submit '登録する', class: "btn botan col-xs-2 col-xs-offset-6" %>
+		<% end %>
 
-<table class="table table-bordered">
-	<tr>
-		<th>郵便番号</th>
-		<th>住所</th>
-		<th>宛名</th>
-		<th></th>
-	</tr>
-	<tr>
-		<% @addresses.each do |address| %>
-			<td><%= address.postcode %></td>
-			<td><%= address.address %></td>
-			<td><%= address.name %></td>
-			<td>
-				<%= link_to "編集する", edit_address_path(address.id), class: "btn-sm btn-success edit_book_37657"  %>
+		<table class="table table-hover address-table col-xs-10">
+			<thead>
+				<tr>
+					<th class="col-xs-2">郵便番号</th>
+					<th class="col-xs-5">住所</th>
+					<th class="col-xs-2">宛名</th>
+					<th class="col-xs-3"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @addresses.each do |address| %>
+					<tr>
+						<td><%= address.postcode %></td>
+						<td><%= address.address %></td>
+						<td><%= address.name %></td>
+						<td>
+							<%= link_to "編集する", edit_address_path(address.id), class: "btn-sm botan edit_book_37657"  %>
 
-				<%= link_to "削除する", address_path(address.id), method: :delete, "data-confirm" => "本当に削除しますか？",class: "btn-sm btn-danger destroy_book_37657"  %>
-			</td>
-		<%end%>
-	</tr>
-</table>
+							<%= link_to "削除する", address_path(address.id), method: :delete, "data-confirm" => "本当に削除しますか？",class: "btn-sm botan-delete destroy_book_37657"  %>
+						</td>
+					</tr>
+				<%end%>
+			</tbody>
+		</table>
+	</div>
+</div>

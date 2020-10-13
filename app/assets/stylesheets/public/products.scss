@@ -2,42 +2,135 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
-.form{
-	display:inline-block;
+////*トップページ*////
+.container-cancellation {
+  position: relative;
+  height: 930px;
+  background-image:url("top.jpg");
+  background-size: cover;
+  margin-left : 0px;
+  margin-right: 0px;
+  margin-top : -130px;
+}
+@media screen and (min-width: 1200px) {
+  .container-cancellation {
+    margin-left : calc(-0.5 * (100vw - 1140px));
+    margin-right: calc(-0.5 * (100vw - 1140px));
+  }
+}
+.top-genre{
+	position: absolute;
+	top: 300px;
+	left: 100px;
+	}
+.top-welcome{
+	position: absolute;
+	top: 550px;
+	left: 700px;
+	}
+.top-message{
+	position: absolute;
+	top: 650px;
+	left: 700px;
+	line-height: 25px;
+}
+.recommend-item-list{
+	float: left;
+	line-height: 20px;
+}
+.recomend-list{
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+.look-link{
+	float:right;
+	margin-bottom: 30px;
+}
+.recomend-item{
+ overflow: hidden;
+ height: 230px;
+}
+.recomend-item img {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+.recomend-item img:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
+////*商品一覧*////
 .genres_index{
 	width:40%;
     margin-left:75px;
 }
-
 .genrelist{
 	text-align:left;
 	margin-top:20px;
 	margin-bottom:20px;
-	font-size:17px;
+}
+.product-title{
+	margin-bottom: 20px;
+}
+.product-title-all{
+	margin-top: -20px;
+	margin-bottom: 20px;
+}
+.product{
+	display: inline-block;
+	margin-right: 16px;
+	margin-bottom: 16px;
+}
+.product-image {
+ margin-bottom: 16px;
+ overflow: hidden;
+ height: 200px;
+}
+.product-image img {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+.product-image img:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
-.recommend-item{
-	float:left;
-	margin-right:5px;
-}
 
-.footer{
-	float:right;
+////*商品詳細*////
+.product-box{
+	margin-top: 90px;
 }
-
-.itemlist{
-	float:left;
+.product-image-show{
+	float: left;
 }
-
-.detail{
-	display:block;
+.product-text{
+	float: left;
+	margin-left: 20px;
 }
-
-.genrelist{
-	display:block;
+.product-name{
+	margin-bottom: 40px;
 }
-
+.product-body{
+	height: 150px;
+	border-bottom: solid 1px #DDDDDD;
+}
+.product-price{
+	display: inline-block;
+}
+.taxin{
+	display: inline-block;
+}
+.product-form{
+	text-align: right;
+}
+.cart-botan{
+    background-color: #666666;
+    color: #fff !important;
+}
+.cart-botan:hover {
+    background-color: #999999;
+}

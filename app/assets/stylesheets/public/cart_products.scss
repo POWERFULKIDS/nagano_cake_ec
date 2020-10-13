@@ -3,7 +3,49 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .shoppingcart{
-	display:inline;
-
+	display: inline-block;
+	}
+.all-destroy{
+	display: inline-block;
+	float: right;
+}
+.cart-table{
+	margin-top: 30px;
+	th{
+	background-color: #eeeeee;
+	}
+	tr{
+	border-bottom: 1px solid #eeeeee;
+	vertical-align: middle;
+	}
 }
 
+.edit{
+	margin-left: 10px;
+	background-color: #eeeeee;
+    color: #000000 !important;
+}
+.edit:hover {
+    background-color: #dddddd;
+}
+.cart-sum{
+	display: inline-block;
+	text-align: center;
+	line-height: 30px;
+	width: 300px;
+}
+.total{
+	display: inline-block;
+	margin-right: 50px;
+}
+.total-price{
+	display: inline-block;
+}
+.next{
+	margin-top: 20px;
+	background-color: #666666;
+    color: #fff !important;
+}
+.next:hover {
+    background-color: #999999;
+}

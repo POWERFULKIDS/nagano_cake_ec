@@ -1,7 +1,6 @@
 class Public::OrdersController < ApplicationController
 
 	def new
-
 		@address=Address.new
 		@order=Order.new
 
@@ -56,8 +55,7 @@ class Public::OrdersController < ApplicationController
             	ordered_product.product_id =cart_product.product_id
             	ordered_product.save
             end
-        
-        
+
 		@cart_products.destroy_all
         render :thanks
         else
@@ -67,7 +65,6 @@ class Public::OrdersController < ApplicationController
     end
 
 	def index
-
 		@order = Order.where(customer_id: current_customer.id)
 		#@orders = @order.find(params[:id])
 

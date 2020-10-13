@@ -1,6 +1,11 @@
-<p>本当に退会しますか？</p>
-<p>退会すると、会員登録情報や<br>
-これまでの購入履歴が閲覧できなくなります。<br>
-退会する場合は、「退会する」をクリックしてください。</p>
-<%= link_to '退会しない', customer_path(@customer), class: "btn btn-primary" %>
-<%= link_to '退会する', customers_withdraw_path, method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1 delete-box">
+		<h4 class="text-center">本当に退会しますか？</h4><br>
+		<p class="text-center">退会すると、会員登録情報や<br>
+		これまでの購入履歴が閲覧できなくなります。<br>
+		退会する場合は、「退会する」をクリックしてください。</p>
+		<div class="botan-box col-xs-4 col-xs-offset-4">
+		<%= link_to '退会しない', customer_path(@customer), class: "btn botan col-xs-6" %>
+		<%= link_to '退会する', customers_withdraw_path, method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn botan-customerdelete col-xs-6" %>
+	</div>
+</div>
