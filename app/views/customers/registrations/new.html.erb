@@ -26,9 +26,9 @@
           <%= f.text_field :postcode, autofocus: true,　autocomplete: "postcode" %>
         </li>
 
-        <li class="address">
+        <li class="address-a">
           <label><%= f.label :住所 %></label>
-          <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+          <%= f.text_field :address, autofocus: true, autocomplete: "address", :size=>'45' %>
         </li>
 
         <li class="phone">
@@ -37,12 +37,12 @@
         </li>
 
         <li class="password">
-          <label><%= f.label :"パスワード(6文字以上)" %></label>
+          <label><%= f.label :"パスワード" %><br><p>(6文字以上)</p></label>
           <%= f.password_field :password, autofocus: true, autocomplete: "password" %>
         </li>
 
         <li class="password_confirmation">
-          <label><%= f.label :"パスワード(確認用)" %></label>
+          <label><%= f.label :"パスワード" %><p>(確認用)</p></label>
             <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </li>
         <br>

@@ -13,7 +13,6 @@ class Public::ProductsController < ApplicationController
 	end
 
 	def index
-		
 		@product_genres = ProductGenre.all
 		# urlにcategory_id(params)がある場合
         if params[:product_genre_id]

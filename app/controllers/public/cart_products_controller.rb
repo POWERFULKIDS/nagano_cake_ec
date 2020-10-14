@@ -3,14 +3,13 @@ class Public::CartProductsController < ApplicationController
     def index
     	@cart_products=CartProduct.all
         @cart_product = CartProduct.where(customer_id: current_customer.id)
-
     end
 
-	
+
 
 	def update
-		@cart_product = CartProduct.find(params[:id])  
-        if @cart_product.update(cart_product_params) 
+		@cart_product = CartProduct.find(params[:id])
+        if @cart_product.update(cart_product_params)
         redirect_to cart_products_path
         end
 
@@ -21,7 +20,7 @@ class Public::CartProductsController < ApplicationController
 		@cart_product.destroy
         redirect_to cart_products_path
     end
-	
+
 
 	def destroy_all
 		@cart_products =CartProduct.all
