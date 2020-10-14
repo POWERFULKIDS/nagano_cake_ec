@@ -1,3 +1,96 @@
 // Place all the styles related to the public/Orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.payment-method{
+	margin-top: 30px;
+}
+.radio-button{
+	margin-top: 10px;
+	margin-left: 20px;
+	font-weight:lighter;
+}
+
+
+.sent-address{
+	margin-top:30px;
+}
+.address{
+	margin-left: 40px;
+}
+.address-2{
+	margin-left: 40px;
+	width: 435px;
+	height: 30px;
+}
+.new-address{
+	margin-bottom: 10px;
+}
+.next{
+	margin-top: 40px;
+	float: right;
+	background-color: #666666;
+    color: #fff !important;
+}
+.next:hover {
+    background-color: #999999;
+}
+
+////*注文確認画面,注文履歴一覧*////
+.table-product{
+	display: inline-block;
+	width: 70%;
+	margin-right: 40px;
+	th{
+	background-color: #eeeeee;
+	}
+	tr{
+	border-bottom: 1px solid #eeeeee;
+	}
+}
+.table-sum{
+	display: inline-block;
+	line-height: 20px;
+	width: 20%;
+	margin-top: 40px;
+	th{
+	width: 100px;
+	font-weight: bold;
+	background: #ffffff;
+	}
+	td{
+	text-align: right;
+	}
+}
+.payment-address{
+	margin-top: 40px;
+	th{
+	width: 100px;
+	background: #ffffff;
+	}
+}
+
+////*thanks*////
+.thankscake{
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
+
+////*order-index*////
+.orderindex{
+	margin-top:30px;
+}
+.orderindex-sum{
+	margin-top:30px;
+}
+.orderindex-product{
+	margin-top:30px;
+}
+
+
+
+.order_page{
+	text-align:center;
+}
+

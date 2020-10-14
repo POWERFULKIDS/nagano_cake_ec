@@ -3,6 +3,10 @@ class Public::CartProductsController < ApplicationController
     def index
     	@cart_products=CartProduct.all
         @cart_product = CartProduct.where(customer_id: current_customer.id)
+        if @cart_products.empty?
+        redirect_to products_path, notice:"カートが空です"
+
+        end
     end
 
 	
@@ -29,7 +33,7 @@ class Public::CartProductsController < ApplicationController
 	end
 
 	def create
-     
+
         @cart_product = CartProduct.new(cart_product_params)
         @cart_product.customer_id = current_customer.id
         if @cart_product.save

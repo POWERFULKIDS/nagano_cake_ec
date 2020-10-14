@@ -5,8 +5,8 @@
 		<table class='table'>
 			<tbody>
 				<tr>
-					<th>顧客ID</th>
-					<td><%= @customer.id %>
+					<th class="col-xs-2">顧客ID</th>
+					<td class="col-xs-6"><%= @customer.id %>
 						<% if @customer.customer_status == true %>
 							<span class="label label-default"> 退会済み </span>
 						<% else %>
@@ -41,5 +41,7 @@
 			</tbody>
 		</table>
 		<%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn botan" %>
+		<%= link_to "注文履歴一覧を見る", admin_orders_path(method:"customer", customer_id: @customer), class: "btn botan" %>
+
 	</div>
 </div>

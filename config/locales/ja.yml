@@ -18,3 +18,11 @@ ja:
         makewaiting: "製作待ち"
         makeproduction: "製作中"
         done: "製作完了"
+
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."

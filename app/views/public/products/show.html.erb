@@ -1,23 +1,24 @@
-<div class="container">
-	<div class="row">
-	<%= render "public/products/sidebar" %>
-		<div class="col-xs-10">
-			<table>
-			<tr><td><%= attachment_image_tag(@product, :image, :fill, 300, 200,)%></td>
-			
-            <td><h2><%= @product.name%></h2><br>
-            <%= @product.body%><br>
-            <h3>¥<%= (@product.price * 1.10).round(0)%>円（税込）</h3></td></tr>
-            </table>
+<div class="row product-show">
+  <div class="col-xs-2">
+    <h5><span><strong>ジャンルから探す</strong></span></h5>
+    <%= render "public/products/sidebar" %>
+  </div>
 
-              <%= form_for (@cart_product) do |f| %>
-              <%= f.hidden_field :product_id, value: @product.id %>
-              <%= f.select :amount, options_for_select((1..20).to_a), include_blank: "個数選択" %>
-              <%= f.submit "カートに入れる" %>
-              <% end %>
+	<div class="col-xs-10 product-box">
+    <%= attachment_image_tag(@product, :image, :fill, 500, 500, class: "product-image-show")%>
+    <div class="product-text">
+      <h2 class="product-name"><%= @product.name%></h2>
+      <div class="product-body"><%= @product.body%></div>
+      <h3 class="product-price">¥<%= (@product.price * 1.10).round(0)%></h3><p class="taxin">（税込）</p><br>
 
-
-        </div>
-</div>
+      <div class="product-form">
+      <%= form_for (@cart_product) do |f| %>
+        <%= f.hidden_field :product_id, value: @product.id %>
+        <%= f.select :amount, options_for_select((1..20).to_a), include_blank: "個数選択" %><br><br>
+        <%= f.submit "カートに入れる", class: "btn cart-botan col-xs-12" %>
+      <% end %>
+    </div>
+    </div>
+  </div>
 </div>
 
