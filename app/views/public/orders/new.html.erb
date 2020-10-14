@@ -22,14 +22,14 @@
 
         <label class="radio-button"><%= f.radio_button :address1, 2 %><strong>　新しいお届け先</strong></label><br>
         <div class="address">
-          <%= f.label :postcode, "郵便番号(ハイフンなし)"%>
-          <%= f.text_field :postcode, :size=>"30", class: "new-address" %><br>
+          <%= f.label :postcode, "郵便番号(ハイフンなし) " %>
+          <%= f.text_field :postcode, :size=>"27", class: "new-address" %><br>
           <%= f.label :address, "住所"%>
-          <%= f.text_field :address, :size=>"60", class: "new-address" %><br>
+          <%= f.text_field :address, :size=>"45", class: "new-address" %><br>
           <%= f.label :name, "宛名" %>
-          <%= f.text_field :name, :size=>"30", class: "new-address"  %><br>
+          <%= f.text_field :name, :size=>"45", class: "new-address"  %><br>
         </div>
-        <%= f.submit '確認画面へ進む', class: "btn next col-xs-3 pull-right" %>
+        <%= f.submit '確認画面へ進む', class: "btn next_btn col-xs-3 pull-right" %>
       <% end %>
     </div>
   </div>

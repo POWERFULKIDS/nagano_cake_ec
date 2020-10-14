@@ -5,7 +5,6 @@
 			<%= render "public/products/sidebar" %>
 		</div>
         <div class="col-xs-10 product-index">
-        		<h3 class="empty_message"><%= notice %></h3>
 		        <% if params[:product_genre_id] %>
 		        	<div class="product-title"><h4><%= @product_genre.name %></h4><p>(全<%= @products.count %>件)</p></div>
 		        <% else %>

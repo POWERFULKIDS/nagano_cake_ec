@@ -11,7 +11,7 @@ class Admin::OrdersController < ApplicationController
 			@orders = @customer.orders
 		else
 		    # すべての注文を取得
-	        @orders = Order.all.page(params[:page]).per(12)
+	        @orders = Order.all.page(params[:page]).per(12).reverse_order
     	end
 	end
 
