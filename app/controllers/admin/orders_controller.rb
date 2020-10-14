@@ -4,11 +4,11 @@ class Admin::OrdersController < ApplicationController
 		# urlにmethod(params)がある場合
 		if params[:method] == "today"
 		    # orderのデータベースのテーブルから今日注文のidを取得
-		    @orders = Order.created_today.order(created_at: :desc)
+		    @orders = Order.created_today.page(params[:page]).per(12).order(created_at: :desc)
 		    # customer_idと紐づく投稿を取得
 		elsif params[:method] == "customer"
-			@customer = Customer.find(params[:customer_id]).order(created_at: :desc)
-			@orders = @customer.orders
+			@customer = Customer.find(params[:customer_id])
+			@orders = @customer.orders.page(params[:page]).per(12)
 		else
 		    # すべての注文を取得
 	        @orders = Order.all.page(params[:page]).per(12)
