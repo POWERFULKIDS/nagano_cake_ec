@@ -1,5 +1,6 @@
 
 #Nagano Cake
+![93EFBDF6-502E-4238-9BF1-C722935D9880_4_5005_c](https://user-images.githubusercontent.com/69759842/95952996-219da580-0e34-11eb-9ffb-fbe5c9d8cb73.jpeg)
 
 Nagano Cakeはrailsを使用した通販サイトです。
 
@@ -34,12 +35,13 @@ Nagano Cakeはrailsを使用した通販サイトです。
 1.サーバーを立ち上げる
 こちらから立ち上げてください(git clone https://github.com/POWERFULKIDS/nagano_cake_ec)
 2.新規登録をする
-* 新規登録の画面の画像
+![C583989D-D90B-4BB8-9709-DAD220898679](https://user-images.githubusercontent.com/69759842/95950205-16944680-0e2f-11eb-9ab8-d1ef8874769a.jpeg)
 3.商品を選んで個数を選択しカートに入れる
-* 商品詳細画面の画像
+![F2B447AF-F585-41F0-99BB-829D94AE75CF](https://user-images.githubusercontent.com/69759842/95952705-902e3380-0e33-11eb-8faf-5045c34b297b.jpeg)
 4.注文情報を入力し確認をして確定をする
-* 注文情報確認画面の画像
+![980A7C1E-8CF8-44D1-AB6A-4FE54BC3A827](https://user-images.githubusercontent.com/69759842/95952739-a1774000-0e33-11eb-857f-9dd306dc18d3.jpeg)
 5.商品注文完了！
+![1FE95AE5-E968-4175-8441-F59351D38DF3](https://user-images.githubusercontent.com/69759842/95952951-0cc11200-0e34-11eb-9881-b73ceda10e3b.jpeg)
 
 管理者側は下図を参考にしてください。
 
