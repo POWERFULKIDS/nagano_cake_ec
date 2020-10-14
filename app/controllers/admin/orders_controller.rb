@@ -11,9 +11,8 @@ class Admin::OrdersController < ApplicationController
 			@orders = @customer.orders
 		else
 		    # すべての注文を取得
-	        @orders = Order.all.order(created_at: :desc)
+	        @orders = Order.all.page(params[:page]).per(12)
     	end
-
 	end
 
 	def show

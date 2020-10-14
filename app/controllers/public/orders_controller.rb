@@ -8,7 +8,8 @@ class Public::OrdersController < ApplicationController
 
 	def comfirm
 		@cart_products=CartProduct.all
-		@order=Order.new
+		@order = Order.new
+		@order.payment_method =params[:order][:payment_method]
 
 		if params[:order][:address1] == 0.to_s
  		@order.postcode = current_customer.postcode
@@ -65,19 +66,15 @@ class Public::OrdersController < ApplicationController
     end
 
 	def index
-		@order = Order.where(customer_id: current_customer.id)
+		@order = Order.where(customer_id: current_customer.id).all.page(params[:page]).per(8)
 		#@orders = @order.find(params[:id])
-
-
 	end
 
 	def show
-
 		@order =Order.find(params[:id])
 
 		@order = Order.find(params[:id])
 		@orders = Order.where(customer_id: current_customer.id)
-
 	end
 
 	private
