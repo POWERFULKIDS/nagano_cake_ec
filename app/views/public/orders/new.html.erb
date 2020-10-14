@@ -20,6 +20,7 @@
         <div class="address"><%= f.collection_select :address_id, Address.where(customer_id: current_customer.id), :id, :address, include_blank: "選択して下さい" %></div>
 
         <label class="radio-button"><%= f.radio_button :address1, 2 %><strong>　新しいお届け先</strong></label><br>
+
         <ul class="address-new">
           <li>
             <label><%= f.label :postcode, "郵便番号" %><br><p>(ハイフンなし)</p></label>
@@ -35,6 +36,7 @@
           </li>
         </ul>
         <%= f.submit '確認画面へ進む', class: "btn next col-xs-3 pull-right" %>
+
       <% end %>
     </div>
   </div>

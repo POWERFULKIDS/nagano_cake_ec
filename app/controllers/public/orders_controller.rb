@@ -66,7 +66,7 @@ class Public::OrdersController < ApplicationController
     end
 
 	def index
-		@order = Order.where(customer_id: current_customer.id).all.page(params[:page]).per(8)
+		@order = Order.where(customer_id: current_customer.id).all.page(params[:page]).per(8).reverse_order
 		#@orders = @order.find(params[:id])
 	end
 
