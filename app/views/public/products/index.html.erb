@@ -1,32 +1,28 @@
 <div class="container">
 	<div class="row">
-	<%= render "public/products/sidebar" %>
+		<div class="col-xs-2">
+			<h5><span><strong>ジャンルから探す</strong></span></h5>
+			<%= render "public/products/sidebar" %>
+		</div>
+        <div class="col-xs-10 product-index">
+        		<h3 class="empty_message"><%= notice %></h3>
+		        <% if params[:product_genre_id] %>
+		        	<div class="product-title"><h4><%= @product_genre.name %></h4><p>(全<%= @products.count %>件)</p></div>
+		        <% else %>
+		　　　　　　　<div class="product-title-all"><h4>All Products</h4><p>(全<%= @products.count %>件)</p></div>
+		        <% end %>
 
-	        <div class="col-xs-10">
-	        <h3 class="empty_message"><%= notice %></h3>
-	        <% if params[:product_genre_id] %>
-	        <h2><%= @product_genre.name %>一覧</h2><p>(全<%= @products.count %>件)</p>
-	        <% else %>
-　　　　　　　<h2>商品一覧</h2><p>(全<%= @products.count %>件)</p>
-            <% end %>
-　　　　　　　
-
-	    	    <% @products.each do |product|%>
-	    	    <div class="itemlist">
-	    	    	<%= link_to product_path(product.id) do %><%= attachment_image_tag(product, :image, :fill, 200, 130,)%>
-	    	    	<% end %>
-	    	    <p class="detail"><%= product.name%></p>
-	    	    <p class="detail">¥<%= product.price%></p>
-
-	    	    </div>
-	    	    <% end %>
-	        </div>
-	        <div class="product_page"><%= paginate @products %></div>
-
-
-
-
-
+    	    <% @products.each do |product|%>
+    	    	<div class="product">
+	    	    	<%= link_to product_path(product.id) do %>
+	    	    		<figure class="product-image"><%= attachment_image_tag(product, :image, :fill, 200, 200)%></figure>
+	    	    	<% end %><br>
+	    	    	<p><%= product.name%></p>
+	    	    	<p>¥<%= product.price%></p>
+    	    	</div>
+    	    <% end %>
+        </div>
+	    <div class="product_page"><%= paginate @products %></div>
     </div>
 </div>
 

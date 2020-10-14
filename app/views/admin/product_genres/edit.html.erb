@@ -1,17 +1,12 @@
-<div class="genres_index">
-<h3>ジャンル編集</h3>
-
-<%= form_for(@product_genre, url: admin_product_genre_path) do |f| %>
-  <h4 class="form">ジャンル
-  <%= f.text_field :name %>
-  </h4>
-  <label class="form"><%= f.radio_button :genre_status, :true %>有効</label>
-  <label class="form"><%= f.radio_button :genre_status, :false %>無効</label>
-  <label class="form"><%= f.submit "変更を保存する"%></label>
-
-
-
-
-<% end %>
-
+<h3>ジャンル編集</h3><br>
+<div class="row">
+  	<div class="col-md-6">
+		<%= form_for(@product_genre, url: admin_product_genre_path) do |f| %>
+		  	<label><%= f.label :ジャンル　 %></label>
+	      	<%= f.text_field :name, :size=>'20' %>
+		    <%= f.radio_button :genre_status, :true,　checked: true %><label> 有効　</label>
+		    <%= f.radio_button :genre_status, :false %><label> 無効　</label>
+		    <%= f.submit "変更を保存する", class: "btn botan"%>
+		<% end %>
+	</div>
 </div>

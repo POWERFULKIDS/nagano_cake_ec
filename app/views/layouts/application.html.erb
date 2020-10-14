@@ -10,52 +10,51 @@
   </head>
 
   <body>
-    <header>
-      <nav class="navbar navbar-fixed-top">
-
-
-        <nav class="nav navbar-nav navbar-left"><span><%= link_to "Nagano cake", root_path %></span></nav>
-        <!--カスタマーのログイン後のヘッダ-->
-        <% if customer_signed_in? %>
-          <ul class="nav navbar-nav navbar-right nav_bar">
-            <p class="navbar-text welcome">ようこそ <%= current_customer.first_name %>さん！</p>
-            <li><%= link_to "マイページ", customer_path(current_customer) %></li>
-            <li><%= link_to "商品一覧", products_path %></li>
-            <li><%= link_to "カート", cart_products_path %></li>
-            <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
-          </ul>
-        <!--管理者のログイン後のヘッダ-->
-        <% elsif admin_signed_in? %>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "商品一覧", admin_products_path %></li>
-            <li><%= link_to "会員一覧", admin_customers_path %></li>
-            <li><%= link_to "注文履歴一覧", admin_orders_path %></li>
-            <li><%= link_to "ジャンル一覧", admin_product_genres_path %></li>
-            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-          </ul>
-        <!--管理者とカスタマーのログイン前のヘッダ-->
-        <% else %>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "About", products_about_path %></li>
-            <li><%= link_to "商品一覧", products_path %></li>
-            <li><%= link_to "新規登録", new_customer_registration_path %></li>
-            <li><%= link_to "ログイン", new_customer_session_path %></li>
-          </ul>
-        <% end %>
-
-      </nav>
-    </header>
+    <div class="container">
+      <header>
+        <nav class="navbar navbar-fixed-top">
+          <!--カスタマーのログイン後のヘッダ-->
+          <% if customer_signed_in? %>
+          <nav class="nav navbar-nav navbar-left"><span><%= link_to root_path do %><%= image_tag 'naganocake-logo.png', :size=> '200x50'%><% end %></span></nav>
+            <ul class="nav navbar-nav navbar-right loginheader">
+              <p class="navbar-text welcome">ようこそ <%= current_customer.first_name %>さん！</p>
+              <li><%= link_to "マイページ", customer_path(current_customer) %></li>
+              <li><%= link_to "商品一覧", products_path %></li>
+              <li><%= link_to cart_products_path do %><span class="glyphicon glyphicon-shopping-cart"> Cart<% end %></li>
+              <li><%= link_to "logout", destroy_customer_session_path, method: :delete %></li>
+            </ul>
+          <!--管理者のログイン後のヘッダ-->
+          <% elsif admin_signed_in? %>
+          <nav class="nav navbar-nav navbar-left"><span><%= link_to admin_root_path do %><%= image_tag 'naganocake-logo.png', :size=> '200x50'%><% end %></span></nav>
+            <ul class="nav navbar-nav navbar-right loginheader">
+              <li><%= link_to "商品一覧", admin_products_path %></li>
+              <li><%= link_to "会員一覧", admin_customers_path %></li>
+              <li><%= link_to "注文履歴一覧", admin_orders_path %></li>
+              <li><%= link_to "ジャンル一覧", admin_product_genres_path %></li>
+              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+            </ul>
+          <!--管理者とカスタマーのログイン前のヘッダ-->
+          <% else %>
+          <nav class="nav navbar-nav navbar-left"><span><%= link_to root_path do %><%= image_tag 'naganocake-logo.png', :size=> '200x50'%><% end %></span></nav>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "About", products_about_path %></li>
+              <li><%= link_to "商品一覧", products_path %></li>
+              <li><%= link_to "新規登録", new_customer_registration_path %></li>
+              <li><%= link_to "login", new_customer_session_path %></li>
+            </ul>
+          <% end %>
+        </nav>
+      </header>
+    </div>
     <div class="body">
       <div class="container">
         <%= yield %>
       </div>
     </div>
-    <% if customer_signed_in? %>
       <footer>
         <div class="col-md-4 col-md-offset-5 footer">
           <p>©︎nagano cake online store</p>
         </div>
       </footer>
-    <% end %>
   </body>
 </html>

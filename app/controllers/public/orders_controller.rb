@@ -1,7 +1,6 @@
 class Public::OrdersController < ApplicationController
 
 	def new
-
 		@address=Address.new
 		@order=Order.new
 
@@ -67,20 +66,15 @@ class Public::OrdersController < ApplicationController
     end
 
 	def index
-
 		@order = Order.where(customer_id: current_customer.id).all.page(params[:page]).per(8)
 		#@orders = @order.find(params[:id])
-
-
 	end
 
 	def show
-
 		@order =Order.find(params[:id])
 
 		@order = Order.find(params[:id])
 		@orders = Order.where(customer_id: current_customer.id)
-
 	end
 
 	private

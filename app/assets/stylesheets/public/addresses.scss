@@ -2,6 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.table-index{
+	width: 700px;
+	margin-top: 30px;
+}
+.table-index tr{
+	margin-top: 10px;
+	th{
+	background: #ffffff;
+	}
+	}
+.address-table{
+	margin-top: 50px;
+}
+.botan-delete{
+	background-color: #B22222;
+	color: #ffffff;
+}
+.botan-delete:hover {
+    background-color: #CC3333;
+    color: #ffffff;
+}
+
 .address_page{
 	text-align:center;
 }

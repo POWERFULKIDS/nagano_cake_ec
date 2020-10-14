@@ -1,3 +1,42 @@
 // Place all the styles related to the public/Customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.send-address{
+	display: inline-block;
+	margin-right: 32px;
+}
+.order-index{
+	display: inline-block;
+	margin-right: 15px;
+}
+
+/*---customer編集画面---*/
+.actions{
+	margin-top: 30px;
+}
+.botan-customerdelete{
+	background-color: #B22222;
+	color: #ffffff;
+}
+.botan-customerdelete:hover {
+    background-color: #CC3333;
+    color: #ffffff;
+}
+
+/*---退会画面---*/
+.delete-box{
+	margin-top: 150px;
+}
+.botan-box{
+	margin-top: 30px;
+}
+.botan-customerdelete2{
+	display: inline-block;
+	background-color: #B22222;
+	color: #ffffff;
+}
+.botan-customerdelete2:hover {
+    background-color: #CC3333;
+    color: #ffffff;
+}
