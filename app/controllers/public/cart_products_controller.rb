@@ -3,10 +3,7 @@ class Public::CartProductsController < ApplicationController
     def index
     	@cart_products=CartProduct.all
         @cart_product = CartProduct.where(customer_id: current_customer.id)
-        if @cart_products.empty?
-        redirect_to products_path, notice:"カートが空です"
 
-        end
     end
 
 	
